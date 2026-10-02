@@ -9,64 +9,37 @@
 </head>
 <body>
     <!-- بەشی داواکردنی پاسوورد -->
-<div id="passwordModal" class="modal-overlay">
-   <div class="modal-content">
-        <!-- زیادکردنی لۆگۆکان لێرەدا -->
-        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
-            <img src="images/1.png.jpg" alt="لۆگۆ ١" style="width: 70px; height: 70px; object-fit: contain;">
-            <img src="images/2.png.jpg" alt="لۆگۆ ٢" style="width: 70px; height: 70px; object-fit: contain;">
-        </div>
-
-        <h3>نووسینگەی شۆفیری مێرگەسۆر</h3>
-        <p>تکایە پاسووردی نووسینگە بنووسە</p>
-        <input type="password" id="modalPasswordInput" placeholder="پاسوورد بنووسە...">
-        <button id="modalSubmitBtn">چوونە ژوورەوە</button>
-    </div>
-    
-</div>
-
-    <div class="main-container">
-        <!-- بەشی یەکەم: ناونووسین و لۆگۆکان -->
-        <div id="name-section" class="card">
-            <div class="logo-container" style="display: flex; justify-content: center; align-items: center; gap: 435px; margin-top: -25px; margin-bottom: -25px;">
-                <img src="images/1.png.jpg" alt="مێرگەسۆر" style="width: 90px; height: 90px; object-fit: contain;">
-                <img src="images/2.png.jpg" alt="ترافیک" style="width: 90px; height: 90px; object-fit: contain;">
+    <div id="passwordModal" class="modal-overlay">
+        <div class="modal-content">
+            <!-- زیادکردنی لۆگۆکان لەناو سندوقەکەدا -->
+            <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
+                <img src="images/1.png.jpg" alt="لۆگۆ ١" style="width: 70px; height: 70px; object-fit: contain;">
+                <img src="images/2.png.jpg" alt="لۆگۆ ٢" style="width: 70px; height: 70px; object-fit: contain;">
             </div>
 
+            <h3>نووسینگەی شۆفیری مێرگەسۆر</h3>
+            <p>تکایە پاسووردی نووسینگە بنووسە</p>
+            <input type="password" id="modalPasswordInput" placeholder="پاسوورد بنووسە...">
+            <button id="modalSubmitBtn">چوونە ژوورەوە</button>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- بەشی یەکەم: ناونووسین -->
+        <div id="name-section" class="card">
             <h1>تاقیکردنەوەی تیوری نووسینگەی مێرگەسۆر</h1>
             <h2>تکایە ناوی سیانی خۆت بنووسە</h2>
-            <input type="text" id="driver-name" placeholder="ناوی سیانی..."spellcheck="false">
+            <input type="text" id="driver-name" placeholder="ناوی سیانی..." spellcheck="false">
             <button onclick="startQuiz()">دەستپێکردن</button>
         </div>
 
         <!-- بەشی دووەم: هەڵبژاردنی گرووپ -->
         <div id="group-select-section" class="card hidden">
-            <h2>گرووپى پرسیارەکان هەلبژێرە</h2>
-            <button onclick="selectGroup('A')">گرووپى A</button>
-            <button onclick="selectGroup('B')">گرووپى B</button>
-            <button onclick="selectGroup('C')">گرووپى C</button>
-            <button onclick="selectGroup('D')">گرووپى D</button>
-        </div>
-
-        <!-- بەشی سێیەم: تاقیکردنەوە -->
-        <div id="quiz-section" class="card hidden">
-            <!-- لێرەدا display:none لابراوە بۆ ئەوەی وێنەی پرسیار بە ڕێکی دەربکەوێت -->
-            <div id="image-container" style="text-align: center; margin-bottom: 10px;">
-                <img id="question-image" src="" alt="وێنەی پرسیار" style="max-width: 150px; max-height: 150px; object-fit: contain;">
-            </div>
-            <h3 id="question-text">...پسیار لێرە دەردەکەوێت</h3>
-            <div class="choices">
-                <button id="choice1-btn" class="choice-btn" onclick="checkAnswer(1)"><span>بژاردەی یەکەم</span></button>
-                <button id="choice2-btn" class="choice-btn" onclick="checkAnswer(2)"><span>بژاردەی دووەم</span></button>
-                <button id="choice3-btn" class="choice-btn" onclick="checkAnswer(3)"><span>بژاردەی سێیەم</span></button>
-            </div>
-        </div> 
-
-        <!-- بەشی ئەنجامی کۆتایی -->
-        <div id="result-section" class="card hidden">
-            <h2>ئەنجامی کۆتایی تاقیکردنەوەکە</h2>
-            <p id="final-score-text"></p>
-            <button onclick="location.reload()">دووبارە دەستپێکردنەوە</button>
+            <h2>گرووپی پرسیارەکان هەڵبژێرە</h2>
+            <button onclick="selectGroup('A')">گرووپی A</button>
+            <button onclick="selectGroup('B')">گرووپی B</button>
+            <button onclick="selectGroup('C')">گرووپی C</button>
+            <button onclick="selectGroup('D')">گرووپی D</button>
         </div>
     </div>
 
