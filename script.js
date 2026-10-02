@@ -6,6 +6,12 @@ let timer = null;
 let timeLeft = 60;
 
 function startQuiz() {
+let password = prompt("تکایە پاسووردی نووسینگە بنووسە:");
+if (password !== "Mirkasor2027") {
+        alert("پاسووردەکە هەڵەیە!");
+        return;
+    }
+
     const nameInput = document.getElementById('driver-name').value.trim();
     if (nameInput === "") {
         alert("تکایە ناوی سیانی خۆت بنووسە!");
@@ -111,11 +117,11 @@ function showQuestion() {
         let cleanName = imageName.replace(/\.[^/.]+$/, "");
        
         let possibleSources = [
-            "images/" + imageName,
-            "images/" + cleanName + ".png.jpg",
-            "images/" + cleanName + "png.jpg",
-            "images/" + cleanName + ".jpg",
-            "images/" + cleanName + ".png"
+            imageName,
+            cleanName + ".png.jpg",
+            cleanName + "png.jpg",
+            cleanName + ".jpg",
+            cleanName + ".png"
         ];
         let sourceIndex = 0;
         imgElement.style.display = "block";
