@@ -5,13 +5,15 @@ let correctAnswersCount = 0;
 let timer = null;
 let timeLeft = 60;
 
-function startQuiz() {
-let password = prompt("تکایە پاسووردی نووسینگە بنووسە:");
-if (password !== "Mirkasor2027") {
-        alert("پاسووردەکە هەڵەیە!");
-        return;
-    }
-
+document.getElementById('modalSubmitBtn').addEventListener('click', function() {
+    let password = document.getElementById('modalPasswordInput').value;
+    if (password === "Mirkasor2027") {
+    document.getElementById('passwordModal').style.display='none';
+    } else {
+alert("!پاسووردەکە هەڵەیە")   
+}
+});
+function startquiz(){
     const nameInput = document.getElementById('driver-name').value.trim();
     if (nameInput === "") {
         alert("تکایە ناوی سیانی خۆت بنووسە!");
