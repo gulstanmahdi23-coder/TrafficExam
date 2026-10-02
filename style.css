@@ -13,7 +13,11 @@ body {
     overflow-x: hidden;
     direction: rtl;
 }
-.main-container{
+.main-container,.card{
+    width: 90%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin: 0 auto;
 display: flex;
 flex-direction: column;
 justify-content: center;
