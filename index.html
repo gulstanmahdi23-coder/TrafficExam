@@ -10,14 +10,8 @@
 <body>
     <!-- بەشی داواکردنی پاسوورد -->
     <div id="passwordModal" class="modal-overlay">
-        <div class="modal-content">
-            <!-- زیادکردنی لۆگۆکان لەناو سندوقەکەدا -->
-            <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;">
-                <img src="images/1.png.jpg" alt="لۆگۆ ١" style="width: 70px; height: 70px; object-fit: contain;">
-                <img src="images/2.png.jpg" alt="لۆگۆ ٢" style="width: 70px; height: 70px; object-fit: contain;">
-            </div>
-
-            <h3>نووسینگەی شۆفیری مێرگەسۆر</h3>
+        <div class="modal-box">
+            <h3>تاقیکردنەوەی تیوری نووسینگەی مێرگەسۆر</h3>
             <p>تکایە پاسووردی نووسینگە بنووسە</p>
             <input type="password" id="modalPasswordInput" placeholder="پاسوورد بنووسە...">
             <button id="modalSubmitBtn">چوونە ژوورەوە</button>
@@ -25,21 +19,28 @@
     </div>
 
     <div class="main-container">
-        <!-- بەشی یەکەم: ناونووسین -->
+        <!-- شاشەی یەکەم: ناوی سیانی، لۆگۆکان و هەڵبژاردنی گروپ پێکەوە لە ناو کارتی سەرەکیدا -->
         <div id="name-section" class="card">
+            <!-- لۆگۆکان بە مەودایەکی گونجاو -->
+            <div style="display: flex; justify-content: center; align-items: center; gap:250px; margin-bottom:20px;">
+            <img src="images/1.png.jpg" alt="لۆگۆ ١" style="width:80px; height:80px; object-fit: contain;">
+            <img src="images/2.png.jpg" alt="لۆگۆ ٢" style="width:80px; height:80px; object-fit: contain;">
+            </div>    
             <h1>تاقیکردنەوەی تیوری نووسینگەی مێرگەسۆر</h1>
             <h2>تکایە ناوی سیانی خۆت بنووسە</h2>
             <input type="text" id="driver-name" placeholder="ناوی سیانی..." spellcheck="false">
+            <!-- هەڵبژاردنی گرووپی پرسیارەکان لە ناو سندوقەکەدا -->
+            <div style="margin: 15px 0; width: 100%;">
+                <h3 style="font-size: 16px; margin-bottom: 10px;">گرووپی پرسیارەکان هەڵبژێرە:</h3>
+                <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+                    <button onclick="selectGroup('A')" style="padding: 6px 12px; cursor: pointer;">گرووپی A</button>
+                    <button onclick="selectGroup('B')" style="padding: 6px 12px; cursor: pointer;">گرووپی B</button>
+                    <button onclick="selectGroup('C')" style="padding: 6px 12px; cursor: pointer;">گرووپی C</button>
+                    <button onclick="selectGroup('D')" style="padding: 6px 12px; cursor: pointer;">گرووپی D</button>
+                </div>
+            </div>
+            
             <button onclick="startQuiz()">دەستپێکردن</button>
-        </div>
-
-        <!-- بەشی دووەم: هەڵبژاردنی گرووپ -->
-        <div id="group-select-section" class="card hidden">
-            <h2>گرووپی پرسیارەکان هەڵبژێرە</h2>
-            <button onclick="selectGroup('A')">گرووپی A</button>
-            <button onclick="selectGroup('B')">گرووپی B</button>
-            <button onclick="selectGroup('C')">گرووپی C</button>
-            <button onclick="selectGroup('D')">گرووپی D</button>
         </div>
     </div>
 
