@@ -38,7 +38,7 @@ function selectGroup(groupInput) {
             return response.text();
         })
         .then(data => {
-            const allQuestions = parseCSV(data);
+        const allQuestions = parseCSV(data);
             examQuestions = getRandomQuestions(allQuestions, 25);
             currentQuestionIndex = 0;
             correctAnswersCount = 0;
