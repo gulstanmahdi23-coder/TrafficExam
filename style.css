@@ -1,156 +1,153 @@
 body {
     /* بەکارهێنانی بەهێزترین فۆنتەکانی ناو سیستەم کە کوردی بە جوانی پیشان دەدەن */
-    font-family: 'Vazirmatn','Rudaw', Tahoma, sans-serif;
-    background:#f4f6f9;
-    margin:0;
-    padding:10px;
-    display:flex;
+    font-family: 'Vazirmatn', 'Rudaw', Tahoma, sans-serif;
+    font-size: 14px;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 10px;
+    display: flex;
     flex-direction: column;
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
     box-sizing: border-box;
     overflow-x: hidden;
     direction: rtl;
 }
-.main-container,.card{
-    width: 90%;
-    max-width: 400px;
-    box-sizing: border-box;
+
+.main-container {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0 auto;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-height: 100vh;
 }
 
 .card {
     background-color: #ffffff;
-    border-radius:16px;
-    padding:30px;
-    width:650px;
-    min-height:450px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.8);
+    border-radius: 16px;
+    padding: 25px 20px;
+    width: 100%;
+    max-width: 450px;
+    min-height: auto;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .card.hidden {
     display: none !important;
 }
 
-h1{
-    font-size: 24px;
-    color:#2c3e50
-    margin-bottom 10px;
-font-weight: 700;
+h1 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    font-weight: 700;
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 16px;
     color: #34495e;
-    margin-bottom:  20px;
-    font-weight:600;
+    margin-bottom: 15px;
+    font-weight: 600;
 }
 
-.name-section h2,h1  .welcome-title{
-    margin-top: 10px;
-}
-
-#name-section{
+#name-section {
     padding-top: 10px;
 }
 
-h3#question-text{
-font-size: 19px;
-color: #2c3e50;
-line-height: 1.6;
-margin-bottom: 20px;
-text-align: right;
-width: 100%;
+h3#question-text {
+    font-size: 19px;
+    color: #2c3e50;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: right;
+    width: 100%;
 }
 
-
-input[type="text"]{
-    width: 80%;
+input[type="text"], input[type="password"] {
+    width: 85%;
     padding: 12px 15px;
     font-size: 16px;
     font-family: inherit;
     border: 2px solid #cbd5e1;
     border-radius: 8px;
-    outline:none;
-    margin-bottom: 20px;
+    outline: none;
+    margin-bottom: 15px;
     text-align: right;
     transition: border-color 0.3s;
+    box-sizing: border-box;
 }
-input[type="text"]:focus{
+
+input[type="text"]:focus, input[type="password"]:focus {
     border-color: #3b82f6;
 }
 
-button{
+button {
     background-color: #3b82f6;
-    color:white;
-    border:none;
-    padding: 12px 25px;
-    font-size: 16px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 15px;
     font-family: inherit;
     font-weight: 600;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s,transform 0.1s;
-    margin: 8px 0;
+    transition: background-color 0.2s, transform 0.1s;
+    margin: 5px 0;
 }
 
-button:hover{
+button:hover {
     background-color: #2563eb;
 }
 
-button:active{
-transform: scale(0.98);
+button:active {
+    transform: scale(0.98);
 }
 
-.choices{
+.choices {
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     width: 100%;
     gap: 12px;
 }
 
-.choice-btn{
+.choice-btn {
     background-color: #f8fafc;
-    color:#1e293b;
-    border:2px solid #e2e8f0;
-text-align: right;
-padding: 12px 18px;
-border-radius: 8px;
-font-size: 16px;
-font-family: inherit;
-cursor: pointer;
-transition: all 0.2s;
+    color: #1e293b;
+    border: 2px solid #e2e8f0;
+    text-align: right;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
 }
 
-.choice-btn:hover{
+.choice-btn:hover {
     background-color: #eff6ff;
     border-color: #3b82f6;
     color: #1d4ed8;
 }
 
-#result-section p{
+#result-section p {
     font-size: 18px;
     color: #334155;
     margin: 10px 0;
     line-height: 1.5;
 }
 
-.choice-btn{
-    user-select: none;
-}
-#question-image{
+#question-image {
     width: 100%;
     max-width: 500px;
     height: auto;
@@ -160,6 +157,7 @@ transition: all 0.2s;
     border: 1px solid #e2e8f0;
     margin-bottom: 10px;
 }
+
 /* دیزاینی پەنجەرەی پاسوورد */
 #passwordModal, .modal-overlay {
     position: fixed;
@@ -167,26 +165,20 @@ transition: all 0.2s;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.90);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 99999;
 }
 
-.modal-content {
+.modal-box {
     background: white;
     padding: 30px;
-    border-radius: 12px;
+    border-radius: 16px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    width: 320px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 380px;
+    box-sizing: border-box;
 }
-
-
-   
-
-
-
-
-
