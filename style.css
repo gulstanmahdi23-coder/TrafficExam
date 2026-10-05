@@ -1,3 +1,6 @@
+.hidden{
+    display: none !important;
+}
 body {
     /* بەکارهێنانی بەهێزترین فۆنتەکانی ناو سیستەم کە کوردی بە جوانی پیشان دەدەن */
     font-family: 'Vazirmatn', 'Rudaw', Tahoma, sans-serif;
@@ -181,4 +184,66 @@ button:active {
     width: 90%;
     max-width: 380px;
     box-sizing: border-box;
+}
+#quiz-section button {
+    width: 100%;
+    text-align: right;
+    padding: 12px 18px;
+    margin: 8px 0;
+    background-color: #f8fafc;
+    color: #1e293b;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+#quiz-section button:hover {
+    background-color: #eff6ff;
+    border-color: #3b82f6;
+    color: #1d4ed8;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 350px;
+    margin-bottom: 20px;
+}
+.logo-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+/* کۆدی مۆبایل و تابلێت */
+@media (max-width: 768px) {
+    .logo-container {
+        gap: 20px;
+    }
+    .logo-img {
+        width: 60px;
+        height: 60px;
+    }
+    .card {
+        padding: 15px !important;
+    }
+    #choice1-btn, #choice2-btn, #choice3-btn {
+        padding: 12px;
+        font-size: 16px;
+    }
+    #question-text {
+        font-size: 16px !important;
+    }
+}
+
+/* کۆدی لاپتۆپ */
+.logo-container {
+    gap: 200px;
+}
+.logo-img {
+    width: 80px;
+    height: 80px;
 }
