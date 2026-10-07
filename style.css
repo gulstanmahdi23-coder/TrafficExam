@@ -221,7 +221,7 @@ button:active {
 /* کۆدی مۆبایل و تابلێت */
 @media (max-width:768px) {
     .logo-container {
-    gap: 180px!important;
+    gap: 200px !important;
     }
     .logo-img {
         width: 50px !important;
