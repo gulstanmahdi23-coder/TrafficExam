@@ -1,287 +1,146 @@
-.hidden{
-    display: none !important;
-}
 body {
-    /* بەکارهێنانی بەهێزترین فۆنتەکانی ناو سیستەم کە کوردی بە جوانی پیشان دەدەن */
-    font-family: 'Vazirmatn', 'Rudaw', Tahoma, sans-serif;
-    font-size: 14px;
-    background: #f4f6f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
     margin: 0;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    box-sizing: border-box;
-    overflow-x: hidden;
+    padding: 0;
     direction: rtl;
 }
 
 .main-container {
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start!important;
-    align-items:center;
-    padding-top:40px!important;
-    padding-bottom:40px!important;
-    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 200px; /* مەودای زۆر بۆ لاپتۆپ */
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.logo-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
 }
 
 .card {
-    background-color:#ffffff;
-    border-radius:16px;
-    width:100% !important;
-    max-width:800px !important;
-    min-height:auto !important;
-    padding:25px 20px !important;
-    box-shadow:0 8px 25px rgba(0, 0, 0, 0.15);
-    box-sizing:border-box;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start !important;
-    align-items:stretch !important;
-    text-align:right !important;
-    margin:0 auto;
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 800px; /* سنووری پانی بۆ لاپتۆپ */
+    padding: 25px 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch; /* ڕێگە نادات شتەکان بچنە ناوەڕاست */
+    text-align: right; /* دەقەکان دەخاتە لای ڕاست */
+    margin: 0 auto 20px auto;
 }
 
 .card.hidden {
     display: none !important;
 }
 
-h1 {
-    font-size: 20px;
-    color: #2c3e50;
-    margin-top: 5px;
-    margin-bottom: 8px;
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 16px;
-    color: #34495e;
-    margin-bottom: 15px;
-    font-weight: 600;
-}
-
-#name-section {
-    padding-top: 10px;
-}
-
-h3#question-text {
-    font-size: 19px;
-    color: #2c3e50;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: right;
-    width: 100%;
-}
-
-input[type="text"], input[type="password"] {
-    width: 85%;
-    padding: 12px 15px;
-    font-size: 16px;
-    font-family: inherit;
-    border: 2px solid #cbd5e1;
-    border-radius: 8px;
-    outline: none;
-    margin-bottom: 15px;
-    text-align: right;
-    transition: border-color 0.3s;
-    box-sizing: border-box;
-}
-
-input[type="text"]:focus, input[type="password"]:focus {
-    border-color: #3b82f6;
-}
-
-button {
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 15px;
-    font-family: inherit;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-    margin: 5px 0;
-}
-
-button:hover {
-    background-color: #2563eb;
-}
-
-button:active {
-    transform: scale(0.98);
-}
-
-.choices {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 12px;
-}
-
-.choice-btn {
-    background-color: #f8fafc;
-    color: #1e293b;
-    border: 2px solid #e2e8f0;
-    text-align: right;
-    padding: 12px 18px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.2s;
-    user-select: none;
-}
-
-.choice-btn:hover {
-    background-color: #eff6ff;
-    border-color: #3b82f6;
-    color: #1d4ed8;
-}
-
-#result-section p {
+#question-text {
     font-size: 18px;
-    color: #334155;
-    margin: 10px 0;
-    line-height: 1.5;
+    margin-bottom: 20px;
 }
 
 #question-image {
-    width: 100%;
-    max-width: 500px;
+    display: none;
+    max-width: 100%;
     height: auto;
-    max-height: 200px;
-    object-fit: contain;
+    margin: 15px auto; /* وێنەکە دەخاتە ناوەڕاستی بەشی خۆی */
     border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    margin-bottom: 10px;
 }
 
-/* دیزاینی پەنجەرەی پاسوورد */
-#passwordModal, .modal-overlay {
+#choice1-btn, #choice2-btn, #choice3-btn {
+    text-align: right !important;
+    direction: rtl !important;
+    display: block !important;
+    width: 100% !important;
+    padding: 15px 20px !important;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#choice1-btn:hover, #choice2-btn:hover, #choice3-btn:hover {
+    background-color: #e9ecef;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: right;
+    direction: rtl;
+}
+
+/* مۆدالەکە */
+.modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.90);
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 99999;
+    z-index: 1000;
 }
-
 .modal-box {
     background: white;
     padding: 30px;
-    border-radius: 16px;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    max-width: 400px;
     width: 90%;
-    max-width: 380px;
-    box-sizing: border-box;
-}
-#quiz-section button {
-    width: 100%;
-    text-align: right;
-    padding: 12px 18px;
-    margin: 8px 0;
-    background-color: #f8fafc;
-    color: #1e293b;
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 16px;
-    font-family: inherit;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-#quiz-section button:hover {
-    background-color: #eff6ff;
-    border-color: #3b82f6;
-    color: #1d4ed8;
-}
-.logo-container {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:200px !important;
-    margin-bottom:20px;
-    width:100%;
-}
-.logo-img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
 }
 
 /* کۆدی مۆبایل و تابلێت */
-@media (max-width:768px) {
-    .logo-container{gap: 80px !important;}
-    body{
-    background-color: #ffffff !important;
+@media (max-width: 768px) {
+    body {
+        background-color: #ffffff !important;
     }
-    .main-container{
-    padding: 0 !important;
-    justify-content: flex-start!important;
+    .main-container {
+        padding: 0 !important;
+        justify-content: flex-start !important;
+    }
+    .logo-container {
+        gap: 80px !important; /* مەودای گونجاو بۆ مۆبایل */
+    }
+    .logo-img {
+        width: 50px !important;
+        height: 50px !important;
     }
     .card {
-        align-items: stretch !important;
-        text-align: right !important;
         width: 100% !important;
+        max-width: 100% !important;
         min-height: 100vh !important;
         border-radius: 0 !important;
-        margin:0!important;
+        margin: 0 !important;
         box-shadow: none !important;
-        padding:20px 25px!important;
-        display: flex;
-        flex-direction: column;
-
+        padding: 20px 15px !important;
     }
-
-    .logo-img {
-        width:50px !important;
-        height:50px !important;
-    }
-    
-    h1{
-        font-size:20px !important;
-
-    }
-    h2{
-        font-size:16px !important;
-    }
-    #choice1-btn, #choice2-btn, #choice3-btn {
-    text-align:right !important;
-    direction:rtl !important;
-    display:block !important;
-    width:100% !important;
-    padding:15px 20px !important;
-    margin-bottom:10px;
-    font-size:16px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    background-color:#f9f9f9;
-    cursor:pointer;
-
-    justify-content:flex-start !important;
-    align-items:center !important;
-    }
-    #question-text {
-        font-size: 16px !important;
-    }
-}
-
-/* کۆدی لاپتۆپ */
-.logo-container {
-    gap: 200px;
-}
-.logo-img {
-    width: 80px;
-    height: 80px;
+    h1 { font-size: 20px !important; }
+    h2 { font-size: 16px !important; }
 }
