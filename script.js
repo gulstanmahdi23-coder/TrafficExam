@@ -30,8 +30,9 @@ function selectGroup(groupInput) {
     else if (groupInput === 'B') selectedGroupFile = 2;
     else if (groupInput === 'C') selectedGroupFile = 3;
     else if (groupInput === 'D') selectedGroupFile = 4;
-
-    alert("گرووپی " + groupInput + " هەڵبژێردرا. ئێستا دوگمەی دەستپێکردن بگرە!");
+    
+    // ئەم alertـە لابرا بۆ ئەوەی پەیامەکە دەرنەکەوێت
+    // alert("گرووپی " + groupInput + " هەڵبژێردرا. ئێستا دوگمەی دەستپێکردن بگرە!");
 }
 
 function startQuiz() {
@@ -49,13 +50,12 @@ function startQuiz() {
         return;  
     }
     
-    // ====== گۆڕانکاری ١: شەفلکردن و هەڵبژاردنی تەنها ٢٥ پرسیار ======
     const shuffled = [...groupList].sort(() => Math.random() - 0.5);
     examQuestions = shuffled.slice(0, 25); 
-    // ===============================================================
 
     currentQuestionIndex = 0;
     correctAnswersCount = 0;
+    
     document.getElementById('name-section').classList.add('hidden');
     document.getElementById('quiz-section').classList.remove('hidden');
     showQuestion();
@@ -73,12 +73,10 @@ function showQuestion() {
     timer = setInterval(() => {
         timeLeft--;
 
-        // ====== گۆڕانکاری ٢: نوێکردنەوەی کاتژمێرەکە لەسەر شاشە ======
         const timerElement = document.getElementById('timer');
         if (timerElement) {
             timerElement.innerText = "⏱️ کاتی ماوە: " + timeLeft + " چرکە";
         }
-        // ==========================================================
 
         if (timeLeft <= 0) {
             clearInterval(timer);
@@ -93,17 +91,17 @@ function showQuestion() {
     document.getElementById('choice2-btn').innerText = "2) " + q.choice2;
     document.getElementById('choice3-btn').innerText = "3) " + q.choice3;
 
-    const imgElement=document.getElementById('question-image');
-    if (q.image && q.image !== "none" && q.image.trim() !=="") {
-        imgElement.style.display="block";
-        imgElement.src="images/"+q.image.trim(); 
-        imgElement.onerror=function(){this.style.display='none';};
-      } else {
+    const imgElement = document.getElementById('question-image');
+    if (q.image && q.image !== "none" && q.image.trim() !== "") {
+        imgElement.style.display = "block";
+        imgElement.src = "images/" + q.image.trim(); 
+        imgElement.onerror = function() { this.style.display = 'none'; };
+    } else {
         imgElement.style.display = "none";
-      }
-   }
+    }
+}
 
-   function checkAnswer(selectedChoiceNum) {
+function checkAnswer(selectedChoiceNum) {
     clearInterval(timer);
     const q = examQuestions[currentQuestionIndex];
     
@@ -116,11 +114,11 @@ function showQuestion() {
     currentQuestionIndex++;
     showQuestion();
 }
-   function endQuiz() {
+
+function endQuiz() {
     clearInterval(timer);
     const finalScore = correctAnswersCount * 4;
-    let statusText = finalScore >= 80 ? "شۆفێر: <b>" + driverName + "</b> - دەرچووی 🎉" : "شۆفێر: <b>" + driverName + "</b> - دەرنەچووی ❌";
-    
+let statusText = finalScore >= 80 ? "شۆفێر: <b>" + driverName + "</b> - دەرچووی 🎉" : "شۆفێر: <b>" + driverName + "</b> - دەرنەچووی ❌";
     document.getElementById('quiz-section').classList.add('hidden');
     const resultSection = document.getElementById('result-section');
     resultSection.classList.remove('hidden');
