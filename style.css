@@ -19,26 +19,22 @@ body {
 }
 
 .main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height:100vh;
-    padding-top: 40px;
-    padding-bottom:40px;
-    width: 100%;
-    max-width: 450px;
-    display: flex;
-    margin: 0 auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start!important;
+    align-items:center;
+    padding-top:40px!important;
+    padding-bottom:40px!important;
+    width:100%;
 }
 
 .card {
     background-color: #ffffff;
-    border-radius: 16px;
+    border-radius:16px;
+    width:100%!important;
+    max-width:800px!important;
+    min-height:80vh!important;
     padding: 25px 20px;
-    width: 100%;
-    max-width: 450px;
-    min-height: auto;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     box-sizing: border-box;
     display: flex;
@@ -244,7 +240,7 @@ button:active {
 
     }
     .logo-container {
-    gap:150px!important;
+    gap:180px!important;
     }
     .logo-img {
         width:50px!important;
