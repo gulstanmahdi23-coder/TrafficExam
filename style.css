@@ -7,13 +7,14 @@ body {
 }
 
 .main-container {
+    /*....*/
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 60px !important;
+    padding-bottom: 40px !important;
     width: 100%;
     box-sizing: border-box;
 }
@@ -22,7 +23,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 200px; /* مەودای زۆر بۆ لاپتۆپ */
+    gap: 100px !important; /* مەودای زۆر بۆ لاپتۆپ */
     margin-bottom: 20px;
     width: 100%;
 }
@@ -126,7 +127,7 @@ input[type="text"], input[type="password"] {
         justify-content: flex-start !important;
     }
     .logo-container {
-        gap: 80px !important; /* مەودای گونجاو بۆ مۆبایل */
+        gap: 60px !important; /* مەودای گونجاو بۆ مۆبایل */
     }
     .logo-img {
         width: 50px !important;
