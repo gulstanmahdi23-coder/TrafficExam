@@ -244,7 +244,7 @@ button:active {
 
     }
     .logo-container {
-    gap: 60px!important;
+    gap:100px!important;
     }
     .logo-img {
         width:50px!important;
@@ -259,17 +259,19 @@ button:active {
         font-size:16px !important;
     }
     #choice1-btn, #choice2-btn, #choice3-btn {
-    text-align: right !important;
-    direction: rtl !important;
-    display: block !important;
-    width: 100% !important;
-    padding: 15px 20px !important;
+    text-align:right!important;
+    direction:rtl!important;
+    display:flex!important;
+    justify-content:flex-start!important;
+    align-items:center!important;
+    padding:15px 20px!important;
+    width:100% !important;
     margin-bottom:10px;
     font-size:16px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    cursor: pointer;
+    border:1px solid #ccc;
+    border-radius:8px;
+    background-color:#f9f9f9;
+    cursor:pointer;
     }
     #question-text {
         font-size: 16px !important;
