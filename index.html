@@ -18,20 +18,19 @@
         </div>
     </div>
 
-     <div class="main-container">
-        <!-- شاشەی یەکەم: ناوی سیانی، لۆگۆکان و هەڵبژاردنی گرووپ پێکەوە لە ناو کارتی سەرەکیدا -->
+    <div class="main-container">
+        <!-- لۆگۆکان لێرەن بۆ ئەوەی هەمیشە دیار بن -->
         <div class="logo-container">
-        <img src="images/1.png.jpg" alt="1لۆگۆ" class="logo-img">
-        <img src="images/2.png.jpg" alt="2لۆگۆ" class="logo-img">
+            <img src="images/1.png.jpg" alt="لۆگۆ ١" class="logo-img">
+            <img src="images/2.png.jpg" alt="لۆگۆ ٢" class="logo-img">
         </div>
 
+        <!-- شاشەی یەکەم: ناوی سیانی و هەڵبژاردنی گرووپ -->
         <div id="name-section" class="card">
-        <h1>تاقیکردنەوەی تیوری نووسینگەی مێرگەسۆر</h1>
-        </div>    
-         <h2>تکایە ناوی سیانی خۆت بنووسە</h2>
-        <input type="text" id="driver-name" placeholder="ناوی سیانی..." spellcheck="false">
+            <h1>تاقیکردنەوەی تیوری نووسینگەی مێرگەسۆر</h1>
+            <h2>تکایە ناوی سیانی خۆت بنووسە</h2>
+            <input type="text" id="driver-name" placeholder="ناوی سیانی..." spellcheck="false">
             
-            <!-- هەڵبژاردنی گرووپی پرسیارەکان لە ناو سندوقەکەدا -->
             <div style="margin: 15px 0; width: 100%;">
                 <h3 style="font-size: 16px; margin-bottom: 10px;">گرووپی پرسیارەکان هەڵبژێرە:</h3>
                 <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
@@ -42,21 +41,20 @@
                 </div>
             </div>
             
-            <button onclick="startQuiz()">دەستپێکردن</button>
+            <button onclick="startQuiz()" style="padding: 15px 30px; font-size: 18px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 8px;">دەستپێکردن</button>
         </div>
 
         <!-- بەشی پرسیارەکان -->
         <div id="quiz-section" class="card hidden">
-            <!-- کاتژمێرەکە لێرە زیادکرا -->
             <div id="timer" style="font-size: 22px; font-weight: bold; color: #d9534f; margin-bottom: 15px; text-align: center;">⏱️ کاتی ماوە: 60 چرکە</div>
             
             <h3 id="question-text" style="margin-bottom: 20px; font-size: 18px;"></h3>
-            <img id="question-image" src="" alt="وێنەی پرسیار" style="display:none; max-width:100%; height:auto; margin-bottom:15px; border-radius:8px;" />
+            <img id="question-image" src="" alt="وێنەی پرسیار" />
             
             <div style="display: flex; flex-direction: column; gap: 10px;">
-                <button id="choice1-btn" onclick="checkAnswer(1)" style="padding: 10px; cursor: pointer; text-align: right;"></button>
-                <button id="choice2-btn" onclick="checkAnswer(2)" style="padding: 10px; cursor: pointer; text-align: right;"></button>
-                <button id="choice3-btn" onclick="checkAnswer(3)" style="padding: 10px; cursor: pointer; text-align: right;"></button>
+                <button id="choice1-btn" onclick="checkAnswer(1)"></button>
+                <button id="choice2-btn" onclick="checkAnswer(2)"></button>
+                <button id="choice3-btn" onclick="checkAnswer(3)"></button>
             </div>
         </div>
 
