@@ -13,7 +13,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
-    padding-top: 60px !important;
+    padding-top: 80px !important;
     padding-bottom: 40px !important;
     width: 100%;
     box-sizing: border-box;
@@ -23,8 +23,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 100px !important; /* مەودای زۆر بۆ لاپتۆپ */
-    margin-bottom: 20px;
+    gap:60px !important; /* مەودای زۆر بۆ لاپتۆپ */
+    margin-bottom:30px !important;
     width: 100%;
 }
 
