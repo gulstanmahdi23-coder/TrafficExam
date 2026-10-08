@@ -30,9 +30,7 @@ function selectGroup(groupInput) {
     else if (groupInput === 'B') selectedGroupFile = 2;
     else if (groupInput === 'C') selectedGroupFile = 3;
     else if (groupInput === 'D') selectedGroupFile = 4;
-    
     // ئەم alertـە لابرا بۆ ئەوەی پەیامەکە دەرنەکەوێت
-    // alert("گرووپی " + groupInput + " هەڵبژێردرا. ئێستا دوگمەی دەستپێکردن بگرە!");
 }
 
 function startQuiz() {
@@ -50,12 +48,14 @@ function startQuiz() {
         return;  
     }
     
+    // شەفلکردن و هەڵبژاردنی تەنها ٢٥ پرسیار
     const shuffled = [...groupList].sort(() => Math.random() - 0.5);
     examQuestions = shuffled.slice(0, 25); 
 
     currentQuestionIndex = 0;
     correctAnswersCount = 0;
     
+    // ئەم دوو دێڕە فۆرمەکە دەشارنەوە و پرسیارەکان دەردەکەن
     document.getElementById('name-section').classList.add('hidden');
     document.getElementById('quiz-section').classList.remove('hidden');
     showQuestion();
@@ -75,7 +75,7 @@ function showQuestion() {
 
         const timerElement = document.getElementById('timer');
         if (timerElement) {
-            timerElement.innerText = "⏱️ کاتی ماوە: " + timeLeft + " چرکە";
+            timerElement.innerText = " کاتی ماوە: " + timeLeft + " چرکە";
         }
 
         if (timeLeft <= 0) {
@@ -118,7 +118,8 @@ function checkAnswer(selectedChoiceNum) {
 function endQuiz() {
     clearInterval(timer);
     const finalScore = correctAnswersCount * 4;
-let statusText = finalScore >= 80 ? "شۆفێر: <b>" + driverName + "</b> - دەرچووی 🎉" : "شۆفێر: <b>" + driverName + "</b> - دەرنەچووی ❌";
+    let statusText = finalScore >= 80 ? "شۆفێر: <b>" + driverName + "</b> - دەرچووی 🎉" : "شۆفێر: <b>" + driverName + "</b> - دەرنەچووی ❌";
+// ئەمە ڕاستکرایەوە: پرسیارەکان دەشاردرێنەوە و ئەنجامەکان دەردەکەون
     document.getElementById('quiz-section').classList.add('hidden');
     const resultSection = document.getElementById('result-section');
     resultSection.classList.remove('hidden');
