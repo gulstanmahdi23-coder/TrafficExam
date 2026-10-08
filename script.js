@@ -93,18 +93,17 @@ function showQuestion() {
     document.getElementById('choice2-btn').innerText = "2) " + q.choice2;
     document.getElementById('choice3-btn').innerText = "3) " + q.choice3;
 
-    const imgElement = document.getElementById('question-image');
-    if (q.image && q.image !== "none") {
-        imgElement.style.display = "block";
-        // ====== گۆڕانکاری ٣: زیادکردنی ناوی فۆڵدەری وێنەکان ======
-        imgElement.src = "images/" + q.image; 
-        // =======================================================
-    } else {
+    const imgElement=document.getElementById('question-image');
+    if (q.image && q.image !== "none" && q.image.trim() !=="") {
+        imgElement.style.display="block";
+        imgElement.src="images/"+q.image.trim(); 
+        imgElement.onerror=function(){this.style.display='none';};
+      } else {
         imgElement.style.display = "none";
-    }
-}
+      }
+   }
 
-function checkAnswer(selectedChoiceNum) {
+   function checkAnswer(selectedChoiceNum) {
     clearInterval(timer);
     const q = examQuestions[currentQuestionIndex];
     
