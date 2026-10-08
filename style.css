@@ -207,11 +207,12 @@ button:active {
     color: #1d4ed8;
 }
 .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 350px;
-    margin-bottom: 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:200px !important;
+    margin-bottom:20px;
+    width:100%;
 }
 .logo-img {
     width: 80px;
@@ -221,6 +222,7 @@ button:active {
 
 /* کۆدی مۆبایل و تابلێت */
 @media (max-width:768px) {
+    .logo-container{gap: 80px !important;}
     body{
     background-color: #ffffff !important;
     }
@@ -229,6 +231,8 @@ button:active {
     justify-content: flex-start!important;
     }
     .card {
+        align-items: stretch !important;
+        text-align: right !important;
         width: 100% !important;
         min-height: 100vh !important;
         border-radius: 0 !important;
@@ -239,9 +243,7 @@ button:active {
         flex-direction: column;
 
     }
-    .logo-container {
-    gap:180px !important;
-    }
+
     .logo-img {
         width:50px !important;
         height:50px !important;
