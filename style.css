@@ -12,7 +12,7 @@ body {
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
-    padding-top: 100px !important; /* بۆشایی گونجاو بۆ لاپتۆپ بۆ ئەوەی لە سەرەوە دوور بێت */
+    padding-top: 50px !important; /* بۆشایی گونجاو بۆ لاپتۆپ بۆ ئەوەی لە سەرەوە دوور بێت */
     padding-bottom: 40px !important;
     width: 100%;
     box-sizing: border-box;
