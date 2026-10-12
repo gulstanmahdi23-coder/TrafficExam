@@ -25,13 +25,14 @@ document.getElementById('modalSubmitBtn').addEventListener('click', function() {
     }
 });
 
-function selectGroup(groupInput,btnElement) {
+function selectGroup(groupInput, btnElement) {
     if (groupInput === 'A') selectedGroupFile = 1;
     else if (groupInput === 'B') selectedGroupFile = 2;
     else if (groupInput === 'C') selectedGroupFile = 3;
     else if (groupInput === 'D') selectedGroupFile = 4;
-    const allGroupBtns=document.querySelectorAll('.group-btn');
-    allGroupBtns.forEach(btn=>btn.classList.remove('active-group'));
+    
+    const allGroupBtns = document.querySelectorAll('.group-btn');
+    allGroupBtns.forEach(btn => btn.classList.remove('active-group'));
     if(btnElement){
         btnElement.classList.add('active-group');
     }
@@ -45,21 +46,19 @@ function startQuiz() {
     }
     driverName = nameInput;
 
-    const groupList = allGroupsQuestions[selectedGroupFile] || allGroupsQuestions[1];
+    const groupList = allGroupsQuestions[selectedGroupFile.toString()] || allGroupsQuestions["1"];
     if (!groupList) {
         console.error("گروپەکە نەدۆزرایەوە یان داتاکە بار نەکراوە!");
         alert("هەڵە: پرسیارەکانی ئەم گروپە بەردەست نیین!");
         return;  
     }
     
-    // شەفلکردن و هەڵبژاردنی تەنها ٢٥ پرسیار
     const shuffled = [...groupList].sort(() => Math.random() - 0.5);
     examQuestions = shuffled.slice(0, 25); 
 
     currentQuestionIndex = 0;
     correctAnswersCount = 0;
     
-    // ئەم دوو دێڕە فۆرمەکە دەشارنەوە و پرسیارەکان دەردەکەن
     document.getElementById('name-section').classList.add('hidden');
     document.getElementById('quiz-section').classList.remove('hidden');
     showQuestion();
@@ -91,9 +90,16 @@ function showQuestion() {
 
     const q = examQuestions[currentQuestionIndex];
     document.getElementById('question-text').innerText = (currentQuestionIndex + 1) + ". " + q.question;
-    document.getElementById('choice1-btn').innerText = "1) " + q.choice1;
-    document.getElementById('choice2-btn').innerText = "2) " + q.choice2;
-    document.getElementById('choice3-btn').innerText = "3) " + q.choice3;
+    
+    if (q.options && Array.isArray(q.options)) {
+        document.getElementById('choice1-btn').innerText = "1) " + (q.options[0] || "");
+        document.getElementById('choice2-btn').innerText = "2) " + (q.options[1] || "");
+        document.getElementById('choice3-btn').innerText = "3) " + (q.options[2] || "");
+    } else {
+        document.getElementById('choice1-btn').innerText = "1) " + (q.choice1 || "");
+        document.getElementById('choice2-btn').innerText = "2) " + (q.choice2 || "");
+        document.getElementById('choice3-btn').innerText = "3) " + (q.choice3 || "");
+    }
 
     const imgElement = document.getElementById('question-image');
     if (q.image && q.image !== "none" && q.image.trim() !== "") {
@@ -106,10 +112,15 @@ function showQuestion() {
 }
 
 function checkAnswer(selectedChoiceNum) {
-    clearInterval(timer);
+clearInterval(timer);
     const q = examQuestions[currentQuestionIndex];
     
-    let isCorrect = (q.correctAnswer.trim() === selectedChoiceNum.toString());
+    let isCorrect = false;
+    if (q.correct !== undefined) {
+        isCorrect = (q.correct === (selectedChoiceNum - 1));
+    } else if (q.correctAnswer !== undefined) {
+        isCorrect = (q.correctAnswer.toString().trim() === selectedChoiceNum.toString());
+    }
 
     if (isCorrect) {
         correctAnswersCount++;
@@ -123,7 +134,7 @@ function endQuiz() {
     clearInterval(timer);
     const finalScore = correctAnswersCount * 4;
     let statusText = finalScore >= 80 ? "شۆفێر: <b>" + driverName + "</b> - دەرچووی 🎉" : "شۆفێر: <b>" + driverName + "</b> - دەرنەچووی ❌";
-// ئەمە ڕاستکرایەوە: پرسیارەکان دەشاردرێنەوە و ئەنجامەکان دەردەکەون
+
     document.getElementById('quiz-section').classList.add('hidden');
     const resultSection = document.getElementById('result-section');
     resultSection.classList.remove('hidden');
@@ -132,14 +143,22 @@ function endQuiz() {
         statusText + "<br><br>" +
         "کۆی گشتی نمرە: <b>" + finalScore + " لە 100</b>";
 }
-// کۆدی پیشاندان و شاردنەوەی پاسوۆرد
-const togglePassword = document.getElementById('togglePassword');
-const passwordInput = document.getElementById('modalPasswordInput');
 
-if (togglePassword && passwordInput) {
-    togglePassword.addEventListener('click', function() {
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.textContent = type === 'password' ? '👁️' : '🙈';
-    });
+// کۆدی پیشاندان و شاردنەوەی پاسوۆرد بە بێ کێشە
+function togglePassword() {
+    const pwdInput = document.getElementById('modalPasswordInput');
+    const eyeOpen = document.getElementById('eyeOpen');
+    const eyeClosed = document.getElementById('eyeClosed');
+    
+    if (!pwdInput||!eyeOpen||!eyeClosed)return;
+
+    if (pwdInput.type === "password") {
+        pwdInput.type = "text";
+        eyeClosed.style.display = "none";
+        eyeOpen.style.display = "block";
+    } else {
+        pwdInput.type = "password";
+        eyeOpen.style.display = "none";
+        eyeClosed.style.display = "block";
+    }
 }
