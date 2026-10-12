@@ -132,3 +132,14 @@ function endQuiz() {
         statusText + "<br><br>" +
         "کۆی گشتی نمرە: <b>" + finalScore + " لە 100</b>";
 }
+// کۆدی پیشاندان و شاردنەوەی پاسوۆرد
+const togglePassword = document.getElementById('togglePassword');
+const passwordInput = document.getElementById('modalPasswordInput');
+
+if (togglePassword && passwordInput) {
+    togglePassword.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.textContent = type === 'password' ? '👁️' : '🙈';
+    });
+}
