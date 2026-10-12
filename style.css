@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Vazirmatn','Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
     background-color: #f4f7f6;
     margin: 0;
     padding: 0;
@@ -7,34 +7,40 @@ body {
 }
 
 .main-container {
-    /*....*/
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
-    padding-top: 80px !important;
+    padding-top: 100px !important; /* بۆشایی گونجاو بۆ لاپتۆپ بۆ ئەوەی لە سەرەوە دوور بێت */
     padding-bottom: 40px !important;
     width: 100%;
     box-sizing: border-box;
 }
 
+/* ============ لۆگۆکان (بۆ لاپتۆپ) ============ */
 .logo-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between !important; /* لە ناوەڕاستی لاپەڕەکە */
     align-items: center;
-    gap:60px !important; /* مەودای زۆر بۆ لاپتۆپ */
-    margin-bottom:30px !important;
-    width: 100%;
+    gap:150px !important; /* مەودایەکی زۆر بۆ لاپتۆپ بۆ ئەوەی لێک دوور بن */
+    padding:0 !important;
+    margin-top: 20px !important;
+    margin-bottom:30px !important; /* [ڕاستکراوە] px زیادکرا */
+    position:relative;
+    width:100%;
 }
 
 .logo-img {
-    width: 80px;
-    height: 80px;
+    width:100px;
+    height:100px;
     object-fit: contain;
 }
 
+/* ============ کارتە سپییەکە ============ */
 .card {
+    min-height: 100vh !important; /* درێژ دەکاتەوە تا خوارەوەی شاشەکە */
+    padding-bottom: 50px !important;
     background-color: #ffffff;
     border-radius: 16px;
     width: 100%;
@@ -48,25 +54,30 @@ body {
     align-items: stretch; /* ڕێگە نادات شتەکان بچنە ناوەڕاست */
     text-align: right; /* دەقەکان دەخاتە لای ڕاست */
     margin: 0 auto 20px auto;
+    padding-top: 70px !important; /* بۆشایی بۆ لۆگۆکان کە لەناو کارتەکەدان */
 }
 
 .card.hidden {
     display: none !important;
 }
 
+/* ============ پرسیار و وێنە ============ */
 #question-text {
+    font-style: normal !important;
     font-size: 18px;
     margin-bottom: 20px;
 }
 
 #question-image {
     display: none;
-    max-width: 100%;
+    max-width: 50% !important; /* وێنەکە بچووک دەکاتەوە بۆ نیوەی پانی شاشەکە */
+    max-height: 250px !important; /* [ڕاستکراوە] لە min-height بۆ max-height بگۆڕدرا */
     height: auto;
-    margin: 15px auto; /* وێنەکە دەخاتە ناوەڕاستی بەشی خۆی */
+    margin: 15px auto;
     border-radius: 8px;
 }
 
+/* ============ دوگمەکانی هەڵبژاردن ============ */
 #choice1-btn, #choice2-btn, #choice3-btn {
     text-align: right !important;
     direction: rtl !important;
@@ -86,6 +97,7 @@ body {
     background-color: #e9ecef;
 }
 
+/* ============ خانەکانی نووسین ============ */
 input[type="text"], input[type="password"] {
     width: 100%;
     padding: 12px 15px;
@@ -98,11 +110,10 @@ input[type="text"], input[type="password"] {
     direction: rtl;
 }
 
-/* مۆدالەکە */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5);
+    background:#ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,22 +128,64 @@ input[type="text"], input[type="password"] {
     width: 90%;
 }
 
-/* کۆدی مۆبایل و تابلێت */
+.group-btn.active-group {
+    background-color: #28a745 !important; /* ڕەنگی سەوز بۆ دوگمەی گرووپی هەڵبژێردراو */
+    color: white !important;
+    border-color: #28a745 !important;
+}
+
+#modalSubmitBtn {
+    background-color: #007bff !important; /* ڕەنگی شین بۆ دوگمەی چوونەژوورەوە */
+    color: white !important;
+    border: none !important;
+    padding: 12px 30px !important;
+    border-radius: 8px !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s !important;
+    margin-top: 15px !important;
+}
+#modalSubmitBtn:hover {
+    background-color: #0056b3 !important;
+}
+
+#name-section {
+    padding-top: 20px !important; /* بۆشایی گونجاو بۆ سەرەتای کارتەکە */
+}
+
+/* ============ کۆدی مۆبایل و تابلێت ============ */
 @media (max-width: 768px) {
     body {
         background-color: #ffffff !important;
     }
+    
     .main-container {
         padding: 0 !important;
         justify-content: flex-start !important;
     }
+
+    /* [ڕاستکراوە] تەنها یەک جار نووسراوە بۆ ڕێکخستنی لۆگۆکان لەسەر مۆبایل */
     .logo-container {
-        gap: 60px !important; /* مەودای گونجاو بۆ مۆبایل */
+        justify-content:center !important;
+        align-items: center;
+        gap: 80px !important; 
+        padding: 0 20px !important; /* بۆشایی گونجاو لە لایەکان بۆ مۆبایل */
+        margin-top: 20px !important;
+        margin-bottom: 30px !important;
+        width: 100%;
     }
+
     .logo-img {
-        width: 50px !important;
-        height: 50px !important;
+        width: 70px !important;
+        height: 70px !important;
     }
+
+    #question-image {
+        max-width: 80% !important; /* لەسەر مۆبایل کەمێک گەورەتر بێت */
+        max-height: 200px !important;
+    }
+
     .card {
         width: 100% !important;
         max-width: 100% !important;
@@ -142,6 +195,15 @@ input[type="text"], input[type="password"] {
         box-shadow: none !important;
         padding: 20px 15px !important;
     }
+    
     h1 { font-size: 20px !important; }
     h2 { font-size: 16px !important; }
+}
+/* لابردنی ڕەنگی شین لەسەر دوگمەکان کاتێک کلیکیان دەکەیت */
+#choice1-btn:focus, #choice2-btn:focus, #choice3-btn:focus,
+#choice1-btn:active, #choice2-btn:active, #choice3-btn:active {
+    outline: none !important;        /* لابردنی هێڵی دەرەوە */
+    box-shadow: none !important;     /* لابردنی سێبەر */
+    background-color: #f9f9f9 !important; /* ڕەنگی سپی بۆ دوگمەکە */
+    color: #000 !important;          /* ڕەنگی نووسینەکە ڕەش */
 }
