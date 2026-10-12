@@ -25,12 +25,16 @@ document.getElementById('modalSubmitBtn').addEventListener('click', function() {
     }
 });
 
-function selectGroup(groupInput) {
+function selectGroup(groupInput,btnElement) {
     if (groupInput === 'A') selectedGroupFile = 1;
     else if (groupInput === 'B') selectedGroupFile = 2;
     else if (groupInput === 'C') selectedGroupFile = 3;
     else if (groupInput === 'D') selectedGroupFile = 4;
-    // ئەم alertـە لابرا بۆ ئەوەی پەیامەکە دەرنەکەوێت
+    const allGroupBtns=document.querySelectorAll('.group-btn');
+    allGroupBtns.forEach(btn=>btn.classList.remove('active-group'));
+    if(btnElement){
+        btnElement.classList.add('active-group');
+    }
 }
 
 function startQuiz() {
