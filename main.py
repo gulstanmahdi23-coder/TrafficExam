@@ -14,6 +14,42 @@ TIME_PER_QUESTION = 60  # چرکە
 PASS_PERCENTAGE = 80
 IMAGES_FOLDER = "images"
 MARKS_PER_QUESTION = 4
+import pandas as pd
+import json
+
+excel_file = "group_questions.xlsx"
+groups = ["group_a", "group_b", "group_c", "group_d"]
+all_data_json = {}
+
+for group in groups:
+    try:
+        df = pd.read_excel(excel_file, sheet_name=group, header=None)
+        
+        # دروستکردنی فایلی CSV بۆ هەر گرووپێک
+        df.to_csv(f"{group}.csv", index=False, header=False, encoding="utf-8-sig")
+        
+        questions_list = []
+        for index, row in df.iterrows():
+            q_dict = {
+                "question": str(row[0]) if len(row) > 0 and pd.notna(row[0]) else "",
+                "choice1": str(row[1]) if len(row) > 1 and pd.notna(row[1]) else "",
+                "choice2": str(row[2]) if len(row) > 2 and pd.notna(row[2]) else "",
+                "choice3": str(row[3]) if len(row) > 3 and pd.notna(row[3]) else "",
+                "correct": str(row[4]) if len(row) > 4 and pd.notna(row[4]) else "",
+                "image": str(row[5]) if len(row) > 5 and pd.notna(row[5]) else ""
+            }
+            questions_list.append(q_dict)
+            
+        all_data_json[group] = questions_list
+        print(f"✅ {group} بە سەرکەوتوویی خوێنرایەوە.")
+        
+    except Exception as e:
+        print(f"❌ هەڵە لە {group}: {e}")
+
+with open("questions.json", "w", encoding="utf-8") as f:
+    json.dump(all_data_json, f, ensure_ascii=False, indent=4)
+
+print("🎉 هەموو پرسیارەکان بە سەرکەوتوویی ئامادە بوون!")
 
 
 def load_questions_for_group(group_num):
